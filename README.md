@@ -3,6 +3,7 @@ PAC1 Web Scapping - Tipologia i cicle de vida de les dades aula 1:
 
 CAL LLIURAR:
 
+
 Una Wiki on estiguin els noms dels components del grup i una descripció dels
 fitxers.
 2. Un document PDF amb les respostes a les preguntes i els noms dels
