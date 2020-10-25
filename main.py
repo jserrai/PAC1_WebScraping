@@ -18,10 +18,12 @@ urls = ['https://www.bcn.cat/estadistica/catala/dades/tdemo/naix/evo/sexe03.htm'
         'https://www.bcn.cat/estadistica/catala/dades/tdemo/canvisnacio/evo/t03.htm']
 '''
 if __name__ == '__main__':
-    url = 'https://www.bcn.cat/estadistica/catala/dades/tdemo/index.htm'
+    url = 'https://www.bcn.cat/estadistica/catala/dades/tdemo/naix/evo/sexe03.htm'
     pag_web = requests.get(url)
     soup= BeautifulSoup(pag_web.content)
+    taula = soup.find('table').get_text() # He afegit aquesta linea per a obtenir la taula de la primera url.
+    print(taula)
 
     # per mirar si recupera be la primera web
     # sha de canviar la url per cada una de les que hem de mirar
-    print(soup)
+
