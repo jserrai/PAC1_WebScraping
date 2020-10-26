@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 '''
 # Aixó ho eliminem, però així ho tenim més a mà ja que els hem de mirar totes 
 URL's de les dades evolutives per barris, demografia Barcelona:
@@ -28,10 +29,13 @@ if __name__ == '__main__':
     for r in row: # Itenerm per totes les files
    	row_num += 1 
 	taula.append([]) 
-	for c in r.find_all("td"): # Per a cada columna...
-		c.get_text() # obtenim el text
-		#taula[row_num].append(nova). <- Aqui cal afegir el text obtingut a la taula creada, però no està bé, demà m'ho miraré altre cop.
-
+	for c in r.find_all("td"): 
+		columna = c.get_text(strip=True)
+		taula[row_num].append(columna)
+		
+df = pd.DataFrame(taula)
+df
+df.to_csv('/Users/paula/Desktop/Taula.csv', index = False) # Crea un df amb la taula dels naixements.
 
     # per mirar si recupera be la primera web
     # sha de canviar la url per cada una de les que hem de mirar
