@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-import pandas as pd   ### per que fas servir el pandas? es per tractament restadistic, per tractar csv hi ha el paquest csv
+import os
+import pandas as pd   ### per que fas servir el pandas? es per tractament estadistic, per tractar csv hi ha el paquest csv
 
 
 '''
@@ -41,10 +42,18 @@ def obtenir_taula(url):
             columna = c.get_text(strip=True) # (!) Obtenim només el text
             taula[row_num].append(columna)
     # Transformem i guardem les dades en forma de .csv
-    df = pd.DataFrame(taula)
-    file_csv = './' + name + '.csv'
-    df.to_csv(file_csv, index = False)
-    return df
+#    df = pd.DataFrame(taula)
+
+    currentDir = os.path.dirname(__file__)
+    filename = name + '.csv'
+    filePath = os.path.join(currentDir, filename)
+    with open(filePath, 'w', newline='') as csvFile:
+        writer = csv.writer(csvFile)
+        for element in taula:
+            writer.writerow(element)
+#    file_csv = './' + name + '.csv'
+#    df.to_csv(file_csv, index = False)
+    return 0
 
 # per mirar si recupera be la primera web
 # sha de canviar la url per cada una de les que hem de mirar
