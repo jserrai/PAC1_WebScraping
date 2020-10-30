@@ -36,38 +36,31 @@ def obtenir_taula(url):
     soup= BeautifulSoup(pag_web.content,'html.parser')
     table = soup.find("table") # Per a obtenir el codi de la taula de la url.
     row = table.find_all("tr") # Per a trobar totes les files
-    taula = [] # Inicialitzem la taula
-    row_num = -1 # Inicialitzem la fila en la que ens trobem
- #   for r in row: # Iterem per totes les files
- #       row_num += 1
- #       taula.append([])
- #       for c in r.find_all("td"):
- #           columna = c.get_text(strip=True) # (!) Obtenim només el text
- #           taula[row_num].append(columna)
-    # Transformem i guardem les dades en forma de .csv
-#    df = pd.DataFrame(taula)
+
+#   taula = [] # Inicialitzem la taula
+#    row_num = -1 # Inicialitzem la fila en la que ens trobem
+#    for r in row: # Iterem per totes les files
+#        row_num += 1
+#        taula.append([])
+#        for c in r.find_all("td"):
+#            columna = c.get_text(strip=True) # (!) Obtenim només el text
+#            taula[row_num].append(columna)
 
     currentDir = os.path.dirname(__file__)
     filename = name + '.csv'
     filePath = os.path.join(currentDir, filename)
 
-
     csvFile = open(filePath, 'wt', newline='', encoding='utf-8')
     writer = csv.writer(csvFile)
-    try:
-        for cell in row:
-            th = cell.find_all('th')
-            th_data = [col.text.strip('\n') for col in th]
-            td = cell.find_all('td')
-            row2 = [i.text.replace('\xa0','') for i in td]
-            writer.writerow(th_data + row2)
-    finally:
-        csvFile.close()
-#    with open(filePath, 'wt', newline='', encoding='utf-8') as csvFile:
 
- #       writer = csv.writer(csvFile)
- #       for element in taula:
- #           writer.writerow(element)
+    #anem fent fins que troba el final de row.
+    try:
+        for c in row:  # per cada cella
+            td = c.find_all('td')
+            row2 = [i.text.replace('\xa0','') for i in td]  # per eliminar el &nspb
+            writer.writerow(row2)
+    finally:
+        csvFile.close()  # si final de row
     return 0
 
 
