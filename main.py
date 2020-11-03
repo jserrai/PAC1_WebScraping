@@ -10,7 +10,7 @@ import csv
 import os
 import time
 from webdriver_manager.chrome import ChromeDriverManager
-from more_itertools import split_after
+from more_itertools import split_before
 #from selenium.webdriver.common.keys import Keys
 
 #Instalem el driver:
@@ -33,16 +33,17 @@ rows_title_list = [] # Header de les taules
 for p in range(len(paisos)):
     paisos_list.append(paisos[p].text)
 
+
 for rt in range(len(rows_title)):
     rows_title_list.append(rows_title[rt].text)
 
-rows_title_list.pop(0) # Cal el pop per a desfer-nos de la primera columna, la qual és un espai (' ').
 
 # Obtenim les id de cada una de les taules:
 leftCol = driver.find_elements_by_xpath('//*[contains(@id,"indice_table_")]')
 tables_id = []
 for i in leftCol:
     tables_id.append(i.get_attribute('id'))
+
 
 # Inicialitzem la llista on aniran les dades de les taules
 rows_data_list = []
@@ -56,21 +57,23 @@ csvFile = open(filePath, 'wt', newline='')
 writer = csv.writer(csvFile)
 
 # Creem el csv
-try: 
-    for iid in tables_id: # Per a cada taula
-        pais = paisos_list.pop(0) # Obtenim el pais de la taula on sóm
-        # Escribim el pais i la header de la taula el csv file
-        writer.writerow(pais)
-        writer.writerow(rows_title_list)
-        # XPath de les dades de les taules:'//*[@id='iid')]/tbody//tr//td'
-        xpath = '//*[@id="' + iid + '"]/tbody//tr//td'
-        rows_data = driver.find_elements_by_xpath(xpath) # Obtenim les dades de les taules
-        rows_data_list = [] # Inicialitzem la llista
-        for rd in range(len(rows_data)):
-            rows_data_list.append(rows_data[rd].text) # Afegim les dades
-        by_rows_data = list(split_after(rows_data_list, lambda x: x == ' ')) # Tallem la llista per files (rows)
-        for row in by_rows_data:
-            writer.writerow(by_rows_data) # Escribim les rows al document csv
+c = 0
+for iid in tables_id: # Per a cada taula
+	pais = paisos_list[c] # Obtenim el pais de la taula on sóm
+	# Escribim el pais i la header de la taula el csv file
+	writer.writerow([pais])
+	writer.writerow(rows_title_list)
+	# XPath de les dades de les taules:'//*[@id='iid')]/tbody//tr//td'
+	xpath = '//*[@id="' + iid + '"]/tbody//tr//td'
+	rows_data = driver.find_elements_by_xpath(xpath) # Obtenim les dades de les taules
+	rows_data_list = [] # Inicialitzem la llista
+	for rd in range(len(rows_data)):
+		rows_data_list.append(rows_data[rd].text) # Afegim les dades
+	by_rows_data = list(split_before(rows_data_list, lambda x: x == ' ')) # Tallem la llista per files (rows)
+	for row in by_rows_data:
+		writer.writerow(row) # Escribim les rows al document csv
+	writer.writerow(' ')
+	c += 1
 
-finally:
-    csvFile.close()
+
+csvFile.close()
