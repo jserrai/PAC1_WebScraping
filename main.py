@@ -18,6 +18,7 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 
 url='https://es.investing.com/indices/world-indices' 
 driver.get(url) # Obrim la pg web a fer scraping.
+time.sleep(10) # Esperem 10 segons a que es carregui la pagina completament
 
 # XPath del nom dels paisos:'//*[@id="leftColumn"]//h2'
 paisos = driver.find_elements_by_xpath('//*[@id="leftColumn"]//h2')
