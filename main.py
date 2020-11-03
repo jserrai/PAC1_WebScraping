@@ -33,12 +33,12 @@ rows_data_list = []
 
 for p in range(len(paisos)):
     paisos_list.append(paisos[p].text)
-    for rt in range(len(rows_title)):
-        rows_title_list.append(rows_title[rt].text)
-        for rd in range(len(rows_data)):
-            rows_data_list.append(rows_data[rd].text)
+for rt in range(len(rows_title)):
+    rows_title_list.append(rows_title[rt].text)
+for rd in range(len(rows_data)):
+    rows_data_list.append(rows_data[rd].text)
 
-diccionari = {rows_title_list[i]: rows_data_list[i] for i in range(len(rows_title_list))}
+#diccionari = {rows_title_list[i]: rows_data_list[i] for i in range(len(rows_title_list))}
 
  currentDir = os.path.dirname(__file__)
     filename = 'Index_investments_mundial.csv'
