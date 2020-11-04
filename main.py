@@ -76,7 +76,6 @@ for iid in tables_id: # Per a cada taula
 	writer.writerow(' ')
 	c += 1
 
-
 csvFile.close()
 
 print("--- Segons: ---" + str(time.time() - start_time))
