@@ -1,4 +1,3 @@
-
 #pip install webdriver_manager
 #pip install selenium
 #pip install more-itertools
@@ -11,7 +10,8 @@ import os
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 from more_itertools import split_before
-#from selenium.webdriver.common.keys import Keys
+
+start_time = time.time()
 
 #Instalem el driver:
 driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -51,7 +51,7 @@ rows_data_list = []
 
 # Obtenim el directori i creem un nou csv file
 currentDir = os.getcwd()
-filename = 'Index_investments_mundial.csv'
+filename = 'Index ' + 'investments '+ 'mundial.csv'
 filePath = os.path.join(currentDir, filename)
 
 csvFile = open(filePath, 'wt', newline='')
@@ -78,3 +78,5 @@ for iid in tables_id: # Per a cada taula
 
 
 csvFile.close()
+
+print("--- Segons: ---" + str(time.time() - start_time))
