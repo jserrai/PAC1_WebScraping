@@ -87,4 +87,4 @@ csvFile.close()
 t=int(time.time() - start_time)
 minuts= t//60
 segons= t - (minuts*60)
-print( minuts, 'minuts', segons,'segons') # ~ 2 miniuts 15 segons
+print( minuts, 'minuts', segons,'segons') # ~ 1 miniut 30 segons
