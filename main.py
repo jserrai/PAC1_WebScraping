@@ -59,11 +59,12 @@ writer = csv.writer(csvFile)
 
 # Creem el csv
 c = 0
-for iid in tables_id: # Per a cada taula
+for iid in tables_id :
+	# Per a cada taula
 	pais = paisos_list[c] # Obtenim el pais de la taula on sóm
 	# Escribim el pais i la header de la taula el csv file
 	writer.writerow([pais])
-	writer.writerow(rows_title_list)
+	writer.writerow(rows_title_list[1:])
 	# XPath de les dades de les taules:'//*[@id='iid')]/tbody//tr//td'
 	xpath = '//*[@id="' + iid + '"]/tbody//tr//td'
 	rows_data = driver.find_elements_by_xpath(xpath) # Obtenim les dades de les taules
@@ -72,10 +73,15 @@ for iid in tables_id: # Per a cada taula
 		rows_data_list.append(rows_data[rd].text) # Afegim les dades
 	by_rows_data = list(split_before(rows_data_list, lambda x: x == ' ')) # Tallem la llista per files (rows)
 	for row in by_rows_data:
-		writer.writerow(row) # Escribim les rows al document csv
+		if len(row)!=1:
+			writer.writerow(row[1:len(row)]) # Escribim les rows al document csv
 	writer.writerow(' ')
 	c += 1
 
 csvFile.close()
 
-print("--- Segons: ---" + str(time.time() - start_time))
+t=int(time.time() - start_time)
+#print("--- Segons: ---" + str(time.time() - start_time))
+minuts= t//60
+segons= t - (minuts*60)
+print( minuts, 'minuts', segons,' segons')
