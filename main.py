@@ -54,7 +54,7 @@ rows_data_list = []
 
 # Obtenim el directori i creem un nou csv file
 currentDir = os.getcwd()
-filename = 'Index ' + 'investments '+ 'mundial.csv'
+filename = 'Cotitzacions mundials.csv'
 filePath = os.path.join(currentDir, filename)
 
 csvFile = open(filePath, 'wt', newline='')
