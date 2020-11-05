@@ -20,6 +20,9 @@ url='https://es.investing.com/indices/world-indices'
 driver.get(url) # Obrim la pg web a fer scraping.
 time.sleep(10) # Esperem 10 segons a que es carregui la pagina completament
 
+#per treure les coockies
+#driver.find_element_by_link_text('I Accept').click()
+
 # XPath del nom dels paisos:'//*[@id="leftColumn"]//h2'
 paisos = driver.find_elements_by_xpath('//*[@id="leftColumn"]//h2')
 
