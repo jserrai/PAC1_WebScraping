@@ -18,10 +18,10 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 
 url='https://es.investing.com/indices/world-indices' 
 driver.get(url) # Obrim la pg web a fer scraping.
-time.sleep(10) # Esperem 10 segons a que es carregui la pagina completament
+time.sleep(5) # Esperem 10 segons a que es carregui la pagina completament
 
 #per treure les coockies
-#driver.find_element_by_link_text('I Accept').click()
+driver.find_elements_by_xpath('//*[@id="onetrust-accept-btn-handler"]')[0].click()
 
 # XPath del nom dels paisos:'//*[@id="leftColumn"]//h2'
 paisos = driver.find_elements_by_xpath('//*[@id="leftColumn"]//h2')
@@ -83,8 +83,8 @@ for iid in tables_id :
 
 csvFile.close()
 
+#Calculem el temps d'execució: 
 t=int(time.time() - start_time)
-#print("--- Segons: ---" + str(time.time() - start_time))
 minuts= t//60
 segons= t - (minuts*60)
 print( minuts, 'minuts', segons,' segons')
