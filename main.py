@@ -11,6 +11,7 @@ import time
 from webdriver_manager.chrome import ChromeDriverManager
 from more_itertools import split_before
 
+#per mesurar el temps quetriga en fer el procediment d'obtenció de les dades
 start_time = time.time()
 
 #Instalem el driver:
@@ -18,9 +19,9 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 
 url='https://es.investing.com/indices/world-indices' 
 driver.get(url) # Obrim la pg web a fer scraping.
-time.sleep(5) # Esperem 10 segons a que es carregui la pagina completament
+time.sleep(5) # Esperem 5 segons a que es carregui la pagina completament
 
-#per treure les coockies
+#fem click al banner per treure l'avís de les coockies
 driver.find_elements_by_xpath('//*[@id="onetrust-accept-btn-handler"]')[0].click()
 
 # XPath del nom dels paisos:'//*[@id="leftColumn"]//h2'
