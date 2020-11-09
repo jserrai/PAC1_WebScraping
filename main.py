@@ -112,3 +112,4 @@ minuts = t//60
 segons = t - (minuts*60)
 print('----Fet!----', '\n')
 print('Temps total: ', minuts, 'minuts', segons,'segons') # ~ 2 miniuts 30 segons
+
