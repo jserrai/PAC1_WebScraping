@@ -84,8 +84,6 @@ Es genera un fitxer en format CSV amb totes les dades que hem obtingut del procÃ
 ![https://github.com/PSobrevals/PAC1_WebScraping/blob/main/Imatges/](https://github.com/PSobrevals/PAC1_WebScraping/blob/main/Imatges/Cotitzacions_mundials.jpg)
 
 
-
-
 ## Bibliografia
 
 > * Lawson, R. (2015). Web Scraping with Python. Packt Publishing Ltd. Scraping the Data.<br>
