@@ -25,7 +25,7 @@ time.sleep(5) # Esperem 5 segons a que es carregui la pagina completament
 # Fem click al banner per treure l'avís de les coockies
 driver.find_elements_by_xpath('//*[@id="onetrust-accept-btn-handler"]')[0].click()
 
-print('----Obtenint les dades...----', '\n')
+print('\n', '----Obtenint les dades...----', '\n')
 
 
 # XPath del nom dels paisos:'//*[@id="leftColumn"]//h2'
@@ -63,7 +63,7 @@ csvFile = open(filePath, 'wt', newline='')
 writer = csv.writer(csvFile)
 
 print('----Escribint el csv...----', '\n')
-print('Això pot trigar aproximadament 1 minut i mitg.', '\n')
+print('Això pot trigar aproximadament 1 minut i mig.', '\n')
 print('Avisarem amb un missatge quan hagi acabat.')
 
 
