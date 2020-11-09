@@ -22,7 +22,7 @@ ___________________
 
 (foto: https://www.altonivel.com.mx/empresas/listar-empresa-bolsa-de-valores/)
 
-## Descripció de la PAC:
+## Descripció de la PRACTICA:
  
 Es crea un repositori de dades obtingudes a partir de la web https://es.investing.com on es mostren les cotitzacions de les diferents borses mundials a temps real. A la pàgina web es pot veure com varien els principals índex bursàtils de cada país durant el temps en que estan obertes i operant les borses. Un cop tancades es manté el valors fins a la següent actualització.
 
