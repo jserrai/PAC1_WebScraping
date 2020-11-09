@@ -72,6 +72,10 @@ if len(row)!=1:
     writer.writerow(row[1:len(row)]) # Escribim les rows al document csv
 ```
 
+## CSV
+
+Petit tastet del dataset CSV:
+
 
 ## Bibliografia
 
