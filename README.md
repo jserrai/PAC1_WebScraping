@@ -15,6 +15,7 @@ PAC1_WebScraping.pdf - Document PDF amb les preguntes i respostes + taula de con
 
 Wiki del repositori - Descripcioó de la PAC, Bibliografia i components del grup.
 
+___________________
 
 
 ![https://www.altonivel.com.mx/empresas/listar-empresa-bolsa-de-valores/](https://github.com/PSobrevals/PAC1_WebScraping/blob/main/Imatges/bolsa.jpg) 
