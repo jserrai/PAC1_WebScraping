@@ -6,8 +6,11 @@ Jordi Serra i Paula Sobrevals
 ## Index
 
 Cotitzacions mundials.csv - Dataset extret en format csv.
+
 Imatges - Carpeta amb les imatges utilitzades a la wiki del Repositori.
+
 main.py - Codi utilitzat per a dur a terme el Web Scraping i crear el dataset.
+
 PAC1_WebScraping.pdf - Document PDF amb les preguntes i respostes + taula de contribucions.
 
 Wiki del repositori - Descripcioó de la PAC, Bibliografia i components del grup.
