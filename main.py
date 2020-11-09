@@ -75,7 +75,7 @@ for iid in tables_id : # Per a cada taula:
     
     # Escribim el pais i la header de la taula el csv file
     writer.writerow([pais])
-    writer.writerow(rows_title_list[:-1])
+    writer.writerow(rows_title_list[1:])
     
     # XPath de les dades de les taules:'//*[@id='iid')]/tbody//tr//td'
     xpath = '//*[@id="' + iid + '"]/tbody//tr//td'
@@ -91,7 +91,7 @@ for iid in tables_id : # Per a cada taula:
     # Escribim les rows al document csv:
     for row in by_rows_data:
         if len(row)!=1:
-            writer.writerow(row)
+            writer.writerow(row[1:len(row)])
     
     #Afegim una fila en blanc per a separar les taules:
     writer.writerow(' ')
