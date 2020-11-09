@@ -72,9 +72,18 @@ if len(row)!=1:
     writer.writerow(row[1:len(row)]) # Escribim les rows al document csv
 ```
 
-## CSV
 
-Petit tastet del dataset CSV:
+## Descripció del Dataset generat
+
+Aquest dataset està compost de dades extretes de la pàgina web: investing.com. Aquesta informació ha estat obtinguda mitjançant l'ús de web scraping (amb selenium) i guardada en forma de taula en format csv. En el dataset podem observar les cotitzacions bursàtils de tot el món, organitzades per taules segons el país dels índexs en qüestió. Aquestes taules estan ordenades alfabèticament segons el país. Cada taula compta amb el nom del país el qual l’índex pertany, així com, el nom de l’índex, l’últim valor observat de cada un, el corresponent màxim i mínim observat, el canvi (tant numèric com amb percentatge) i per últim l’hora de l’observació.Al final del dataset hi trobem la data i hora en la qual s’han obtingut les dades
+
+## Resultat final en format CSV
+
+Es genera un fitxer en format CSV amb totes les dades que hem obtingut del procés anterior, la imatge mostra un petit tastet del dataset generat, concretament la informació dels tres primers països. Aquest dataset ha estat obtingut mitjançant la llibreria Selenium versió 3.141.0 de Python 3.6.0:
+
+![https://github.com/PSobrevals/PAC1_WebScraping/blob/main/Imatges/](https://github.com/PSobrevals/PAC1_WebScraping/blob/main/Imatges/Cotitzacions_mundials.jpg)
+
+
 
 
 ## Bibliografia
